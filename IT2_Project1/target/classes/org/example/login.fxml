@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="org.example.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="123.0" layoutY="66.0" prefHeight="301.0" prefWidth="392.0" style="-fx-background-color: #E568DF;">
+            <children>
+                <Label layoutX="147.0" layoutY="48.0" text="Login">
+                    <font>
+                        <Font name="Arial Bold" size="36.0" />
+                    </font>
+                </Label>
+                <AnchorPane layoutX="162.0" layoutY="96.0" prefHeight="3.0" prefWidth="70.0" style="-fx-background-color: #000000;" />
+                <TextField fx:id="userfield" layoutX="116.0" layoutY="130.0" promptText="Bruger" />
+                <PasswordField fx:id="passwordfield" layoutX="116.0" layoutY="178.0" promptText="Kodeord" />
+                <Button fx:id="loginbutton" layoutX="243.0" layoutY="224.0" mnemonicParsing="false" onAction="#showMainMenu" text="Ok" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
