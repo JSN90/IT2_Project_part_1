@@ -17,6 +17,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        System.out.println("Hej verden");
     }
 
     static void setRoot(String fxml) throws IOException {
