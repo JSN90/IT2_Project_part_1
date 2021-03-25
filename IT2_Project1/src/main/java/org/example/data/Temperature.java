@@ -2,6 +2,7 @@ package org.example.data;
 
 import org.example.Controller;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Temperature extends Controller {
@@ -17,9 +18,9 @@ public class Temperature extends Controller {
     double max,min;
     public static void main(String[] args) {
 
-        double temperature = Math.random();
-
-        System.out.println(temperature);
+        double temperature = Math.random()*6+35;
+        DecimalFormat deci = new DecimalFormat("##.##");
+        System.out.println(deci.format(temperature));
 
     }
 
