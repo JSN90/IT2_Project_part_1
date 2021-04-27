@@ -19,11 +19,6 @@ public class App extends Application {
         stage.show();
         //System.out.println("Hej verden");
 
-
-
-
-
-
     }
 
     static void setRoot(String fxml) throws IOException {

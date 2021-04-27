@@ -1,26 +1,28 @@
-package org.example;
+package org.example.DB;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UseDB {
-    int randomheltal = (int) (Math.random() * 1000);
-    //Private Attinutter som skal bruge i denne klasse
+
     private Statement statement;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
     private Connection connection;
 
-
-    public UseDB(Connection connection) {
-        this.connection = connection;
+    public UseDB(Connection connection){
+        this.connection=connection;
         //  System.out.println("I got the connection named..."+connection.toString());
     }
 
-    // er void hvis den sætter ind - kan være andet.
-    public void insertMeasurementsIntoTable(int patientID, int Appointmentid) {
 
-        double randomdecimal = Math.random() * 1000 * 1000 * 1000;
-        String SQL = "insert into patients(value1,value2,value3,ptID) values(?,?,?,?);";
+    int randomheltal = (int) (Math.random() * 1000);
+
+    // er void hvis den sætter ind - kan være andet.
+    public void insertMeasurementsIntoTable( int patientID, int Appointmentid){
+
+        double randomdecimal = Math.random() * 1000*1000*1000;
+        String SQL ="insert into Measurements(value1,value2,value3,ptID) values(?,?,?,?);";
         String SQL2 = "insert into Measurements(appid,value1,value2) values(?,?,?);";
 
         try {
@@ -28,12 +30,12 @@ public class UseDB {
 
             preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setDouble(1, randomdecimal);
+            preparedStatement.setDouble(1,randomdecimal);
 
             //kan skiftes ud, er bare for syns skyld.
-            preparedStatement.setDouble(2, randomdecimal);
-            preparedStatement.setDouble(3, randomdecimal);
-            preparedStatement.setInt(4, patientID);
+            preparedStatement.setDouble(2,randomdecimal);
+            preparedStatement.setDouble(3,randomdecimal);
+            preparedStatement.setInt(4,patientID);
 
             preparedStatement.execute();
         } catch (SQLException throwables) {
@@ -43,11 +45,13 @@ public class UseDB {
     }
 
 
-    public void insertAppointment(int patientID) {
+    public void insertAppointment(int patientID){
 
-        try {
+        try{
             preparedStatement = connection.prepareStatement("");
-        } catch (Exception ex) {
+        }
+
+        catch (Exception ex){
 
         }
 
@@ -84,9 +88,7 @@ public class UseDB {
         }
 
      */
-  /*
     public ArrayList<dataObject> findAllMeasurementsFromPatient(int appointmentID, int patientID){
-
         dataObject dataObject= new dataObject();
         ArrayList liste = new ArrayList();
         //placeholder til værdier, som kan returneres.
@@ -121,7 +123,6 @@ public class UseDB {
         return liste;
     }
 
-   */
 
 
 }

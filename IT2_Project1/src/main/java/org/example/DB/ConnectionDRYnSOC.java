@@ -1,4 +1,4 @@
-package org.example;
+package org.example.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,28 +8,27 @@ import java.sql.Statement;
 public class ConnectionDRYnSOC {
 
     private static Connection connection = null;
-    private static String SQLITEDriver = "jdbc:sqlite:";
-    private static String MYSQLDriver = "jdbc:mysql://" + "localhost:3306/";
+    private static String SQLITEDriver = "JDBC:sqlite:";
     private static String url;
+// a rising tide lifts all boats.
 
-    public ConnectionDRYnSOC() {
-
+    public ConnectionDRYnSOC() { // hvad og hvor er blevet brugt til?
 
     }
 
     //Using singleton
-    public  Connection getSQLITEConnection(String Filename) {
-        url = SQLITEDriver + Filename;
+    public  Connection getSQLITEConnection(String Journals) {
+        url = SQLITEDriver + Journals;
         try {
             connection = DriverManager.getConnection(url);
             if (connection != null) {
-                System.out.println("Connected to: " + Filename);
+                System.out.println("Connected to: " + Journals);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
-
+        /*
         String createTable1 = "CREATE TABLE if not exists `Patients` (\n" +
                 "  `id` int NOT NULL AUTO_INCREMENT,\n" +
                 "  `name` text,\n" +
@@ -72,12 +71,12 @@ public class ConnectionDRYnSOC {
             throwables.printStackTrace();
         }
 
+         */
 
         return connection;
     }
 
-
-
+/*
     Connection getMYSQLConnection(String username, String password, String Schema) {
         url = MYSQLDriver + Schema + "?serverTimezone=Europe/Amsterdam&amp";
         try {
@@ -128,5 +127,5 @@ public class ConnectionDRYnSOC {
         return connection;
     }
 
-
+ */
 }

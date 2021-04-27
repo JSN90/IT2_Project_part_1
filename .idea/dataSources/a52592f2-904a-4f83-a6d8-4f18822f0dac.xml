@@ -369,7 +369,7 @@
     <package id="167" parent="1" name="json_tree"/>
     <package id="168" parent="1" name="rtree"/>
     <package id="169" parent="1" name="rtree_i32"/>
-    <table id="170" parent="2" name="Table1"/>
+    <table id="170" parent="2" name="PatientData"/>
     <table id="171" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
@@ -1339,19 +1339,19 @@
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="493" parent="170" name="Puls">
+    <column id="493" parent="170" name="BodyTemp">
       <Position>2</Position>
-      <DataType>int|0s</DataType>
+      <DataType>double|0s</DataType>
     </column>
-    <column id="494" parent="170" name="SpO2">
+    <column id="494" parent="170" name="Puls">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="495" parent="170" name="Temperature ">
+    <column id="495" parent="170" name="SpOto">
       <Position>4</Position>
       <DataType>double|0s</DataType>
     </column>
-    <key id="496" parent="170" name="Table1_pk">
+    <key id="496" parent="170" name="PatientData_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
