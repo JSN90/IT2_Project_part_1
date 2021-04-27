@@ -12,6 +12,7 @@ public class ConnectionDRYnSOC {
     private static String url;
 // a rising tide lifts all boats.
 
+
     public ConnectionDRYnSOC() { // hvad og hvor er blevet brugt til?
 
     }
