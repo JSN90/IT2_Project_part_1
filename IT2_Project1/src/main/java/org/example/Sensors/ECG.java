@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.Sensors;
 
 import org.example.Controller;
 

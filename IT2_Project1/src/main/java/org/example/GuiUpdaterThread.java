@@ -1,14 +1,14 @@
 package org.example;
 
 import javafx.scene.shape.Polyline;
-import org.example.data.Pulse;
-import org.example.data.Temperature;
+import org.example.Sensors.Puls;
+import org.example.Sensors.Temperature;
 
 public class GuiUpdaterThread implements Runnable{
 
     Polyline graf;
     Temperature temperature;
-    Pulse pulse = new Pulse();
+    Puls puls = new Puls();
     public GuiUpdaterThread(Polyline graf){
         this.graf=graf;
 
@@ -22,7 +22,7 @@ public class GuiUpdaterThread implements Runnable{
     @Override
     public void run() {
 
-        graf.getPoints().add(temperature.getValue());
+       // graf.getPoints().add(temperature.getValue());
 
         try {
             Thread.sleep(3000);
