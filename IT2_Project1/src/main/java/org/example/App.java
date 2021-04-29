@@ -41,7 +41,7 @@ public class App extends Application {
 
         }
         // You can search for any patients data records by typing her/ his ID:
-        dbuser.findAllMeasurementsFromPatient(5577);
+        dbuser.findAllMeasurementsFromPatient(2525);
     }
 
     @Override
