@@ -35,12 +35,12 @@ public class App extends Application {
         for (int i=0;i<30;i++) {
 
             // You can choos a Patient to be investigated
-            dbuser.insertIntoDatabase(1945);
+            dbuser.insertIntoDatabase(2022);
 
 
         }
         // You can search for any patients data records by typing her/ his ID:
-        dbuser.findAllDataFromPatient(1945);
+        dbuser.findAllDataFromPatient(2022);
     }
 
     @Override
@@ -49,4 +49,5 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
 }
