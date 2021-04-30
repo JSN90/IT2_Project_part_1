@@ -30,7 +30,7 @@ public class UseDB {
         //double Temp = Math.round(temperature);
         //-----------------------------------------------------
 
-        String SQL = "insert into Journal(Temperature,SpO2,Puls,patientID) values(?,?,?,?);";
+        String SQL = "insert into Journals(Temperature,SpO2,Puls,patientID) values(?,?,?,?);";
 
         try {
 
@@ -63,7 +63,7 @@ public class UseDB {
 
     public void findAllMeasurementsFromPatient(int patientID) {
 
-        String SQL = "SELECT id,Temperature,SpO2,Puls,patientID FROM Journal where patientID="
+        String SQL = "SELECT rawID,Temperature,SpO2,Puls,PatientID FROM Journals where patientID="
                 + patientID + ";";
         try {
 
@@ -71,11 +71,12 @@ public class UseDB {
             resultSet = statement.executeQuery(SQL);
             while (resultSet.next()) {
                 System.out.println(
-                        "id :" + resultSet.getInt(1) + "\t" + "|" +
-                                "Temperature :" + resultSet.getDouble(2) + "℃" + "\t" + "|" +
-                                "SpO2 : " + resultSet.getDouble(3) + "\t" + "|" +
-                                "Puls: " + resultSet.getInt(4) + "\t" + "|" +
-                                "PatientID:" + resultSet.getInt(5) + "\t" + "|"
+                        "| RawID :" + resultSet.getInt(1) + "|"+"\t" + "|" +
+                                "Temperature :" + resultSet.getDouble(2) + "℃" + "|"+"\t" + "|" +
+                                "SpO2 : " + resultSet.getDouble(3) + "|"+"\t" + "|" +
+                                "Puls: " + resultSet.getInt(4) + "|"+"\t" + "|" +
+                                "PatientID:" + resultSet.getInt(5) + "|"+"\t" + "|"
+
                 );
             }
         } catch (SQLException throwables) {

@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.sql.DBConnection;
-import org.example.sql.Main;
 import org.example.sql.UseDB;
 
 import java.io.IOException;
@@ -36,12 +35,12 @@ public class App extends Application {
         for (int i=0;i<30;i++) {
 
             // You can choos a Patient to be investigated
-            //dbuser.insertIntoDatabase(123456789);
+            dbuser.insertIntoDatabase(66);
 
 
         }
         // You can search for any patients data records by typing her/ his ID:
-        dbuser.findAllMeasurementsFromPatient(2525);
+        dbuser.findAllMeasurementsFromPatient(66);
     }
 
     @Override
@@ -49,9 +48,5 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 640, 480);
         stage.setScene(scene);
         stage.show();
-        //System.out.println("Hej verden");
-
     }
-
-
 }
