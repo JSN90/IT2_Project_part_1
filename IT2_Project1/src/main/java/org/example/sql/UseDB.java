@@ -1,6 +1,7 @@
 package org.example.sql;
 
 import java.sql.*;
+import java.util.TimeZone;
 
 public class UseDB {
 
@@ -18,19 +19,19 @@ public class UseDB {
         /**
          * WE simulating with Math.random in stead of real sensors
          */
-        //----------------------------------------------------
+        //----------------------Puls-----------------------------
         int vaerdi = (int) (Math.random() * 90 + 130);
         int puls = vaerdi * 10 / 50 + 24;
-        //----------------------------------------------------
-        double SpO2 = (Math.random() * 5 + 95);
-      // double spo2 = Math.round(SpO2);
+        //---------------------SpO2------------------------------
+        double SpO2 = Math.floor(Math.random() * 5 + 94.7);
+        //double spo2 = Math.round(SpO2);
 
-        //----------------------------------------------------
-        double temperature  = Math.random() * 6 + 35;
+        //---------------------Temperature-----------------------
+        double temperature  = Math.floor(Math.random() * 6 + 34.7);
         //double Temp = Math.round(temperature);
         //-----------------------------------------------------
 
-        String SQL = "insert into Journals(Temperature,SpO2,Puls,patientID) values(?,?,?,?);";
+        String SQL = "insert into Journal(Temperature,SpO2,Puls,PtID) values(?,?,?,?);";
 
         try {
 
@@ -48,22 +49,13 @@ public class UseDB {
 
     }
 
-/*
-    public void insertAppointment(int patientID) {
 
-        try {
-            preparedStatement = connection.prepareStatement("");
-        } catch (Exception ex) {
+    public void findAllDataFromPatient(int patientID) {
+       // TimeZone regtime = TimeZone.getTimeZone("?serverTimezone=Europe/Amsterdam&amp");
 
-        }
 
-    }
 
- */
-
-    public void findAllMeasurementsFromPatient(int patientID) {
-
-        String SQL = "SELECT rawID,Temperature,SpO2,Puls,PatientID FROM Journals where patientID="
+        String SQL = "SELECT id,Temperature,SpO2,Puls,PtID, RegTime FROM Journal where PtID="
                 + patientID + ";";
         try {
 
@@ -72,10 +64,11 @@ public class UseDB {
             while (resultSet.next()) {
                 System.out.println(
                         "| RawID :" + resultSet.getInt(1) + "|"+"\t" + "|" +
-                                "Temperature :" + resultSet.getDouble(2) + "℃" + "|"+"\t" + "|" +
+                                "Temperature :" + resultSet.getDouble(2) + " ℃ " + "|"+"\t" + "|" +
                                 "SpO2 : " + resultSet.getDouble(3) + "|"+"\t" + "|" +
                                 "Puls: " + resultSet.getInt(4) + "|"+"\t" + "|" +
-                                "PatientID:" + resultSet.getInt(5) + "|"+"\t" + "|"
+                                "PatientID:" + resultSet.getInt(5) + "|"+"\t" + "|"  +
+                                "Date&Time : " + resultSet.getObject(6) + "|"+"\t" + "|"
 
                 );
             }
